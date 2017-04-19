@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {MdButtonModule} from '@angular/material';
+import {AllDataService} from './services/all-data.service';
+
 
 @NgModule({
   declarations: [
@@ -12,9 +15,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MdButtonModule
   ],
-  providers: [],
+  providers: [AllDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
