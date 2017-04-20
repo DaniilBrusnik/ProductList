@@ -4,19 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {MdButtonModule} from '@angular/material';
+import {MdButtonModule, MdCardModule} from '@angular/material';
 import {AllDataService} from './services/all-data.service';
+import { ProductsComponent } from './products/products.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductsComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdButtonModule
+    MdButtonModule,
+    MdCardModule
   ],
   providers: [AllDataService],
   bootstrap: [AppComponent]
