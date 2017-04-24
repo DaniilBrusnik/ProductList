@@ -10,7 +10,7 @@ export class CommentsComponent implements OnInit {
   reviews: any;
   product_id = 1;
   constructor(private http: Http) {
-    this.http.get('http://smktesting.herokuapp.com/api/products/' + this.product_id).subscribe(
+    this.http.get('http://smktesting.herokuapp.com/api/reviews/' + this.product_id).subscribe(
       data => {
         this.reviews = JSON.parse(data['_body']);
       }

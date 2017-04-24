@@ -8,8 +8,8 @@ import {MdButtonModule, MdCardModule} from '@angular/material';
 import {AllDataService} from './services/all-data.service';
 import { ProductsComponent } from './products/products.component';
 import { CommentsComponent } from './comments/comments.component';
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,9 @@ import { CommentsComponent } from './comments/comments.component';
     FormsModule,
     HttpModule,
     MdButtonModule,
-    MdCardModule
+    MdCardModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [AllDataService],
   bootstrap: [AppComponent]
