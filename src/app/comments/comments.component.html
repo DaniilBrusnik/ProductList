@@ -1,18 +1,20 @@
-
-<md-card class="example-card" *ngFor="let data of reviews">
+<div  class="content" fxLayout="column"  fxFlex="100" fxLayoutAlign="space-around center"  >
+<md-card fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch" class="example-card" *ngFor="let data of reviews">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
     <md-card-title>{{data.title}}</md-card-title>
   </md-card-header>
 
-  <md-card-content>
+  <md-card-content >
+    <p>
+      {{data.id}}
+    </p>
+    <p>
+      {{data.product}}
+    </p>
     <p>
       {{data.text}}
     </p>
   </md-card-content>
-  <md-card-actions>
-    <button md-button>Like</button>
-    <button md-button>Comment</button>
-  </md-card-actions>
-
 </md-card>
+</div>

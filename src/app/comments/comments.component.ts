@@ -4,7 +4,7 @@ import {Http} from '@angular/http';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  styleUrls: ['./comments.component.less']
 })
 export class CommentsComponent implements OnInit {
   reviews: any;

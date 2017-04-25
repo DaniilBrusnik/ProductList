@@ -1,17 +1,17 @@
-<div fxLayout="column" fxLayoutAlign="space-around center"  >
-<md-card   class="example-card" *ngFor="let data of defaultData">
-  <md-card-header>
+<div fxLayout="column" fxLayoutAlign="start start"  >
+<md-card fxFlex="25" fxLayout="column" fxLayoutAlign="center stretch"  class="example-card" *ngFor="let data of defaultData">
+  <md-card-header  fxLayoutAlign="center"  >
+    <md-card-title >{{data.title}}</md-card-title>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{data.title}}</md-card-title>
   </md-card-header>
-  <img src="{{'./assets/images/' + data.img}}">
+  <img fxFlex="100" class="image" src="{{'./assets/images/' + data.img}}">
   <md-card-content>
     <p>
       {{data.text}}
     </p>
   </md-card-content>
   <md-card-actions fxLayout="column" >
-    <button  fxFlex="20" md-button>Like</button>
+
     <button md-button>Comment</button>
   </md-card-actions>
 
