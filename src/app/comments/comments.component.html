@@ -1,13 +1,11 @@
-
-
 <div   class="content"  fxLayout="column" >
   <div  fxLayout="column" fxFlex="100" fxLayoutAlign="center stretch">
   <md-input-container >
-    <textarea #newComment  class="user-comment" mdInput placeholder="Your comment"></textarea>
+    <textarea #newComment  (blur)="newComment.value=''" class="user-comment" mdInput placeholder="Your comment"></textarea>
   </md-input-container>
     <div fxLayout="row" fxLayoutAlign="end stretch">
-      <button fxFlex="25" md-button (click)=addHero(newComment.value) >Submit Review</button>
-      <button fxFlex="25" md-button (click)="show=!show" >Show All Reviews</button>
+      <button fxFlex="25" color="primary" md-button (click)=addHero(newComment.value) >Submit Review</button>
+      <button fxFlex="25" color="warn" md-button (click)="show=!show" >Show All Reviews</button>
     </div>
 
   </div>
@@ -16,9 +14,9 @@
           class="card-comments" *ngFor="let data of reviews">
 
 
-  <div class="comments">
-     <div class="user" >
-       User:{{data.created_by.username}} at {{data.created_at}}<br>
+  <div >
+     <div  fxLayoutAlign="end stretch" class="user" >
+       User: {{data.created_by.username}} at {{data.created_at}}<br>
 
     </div>
     <div>
