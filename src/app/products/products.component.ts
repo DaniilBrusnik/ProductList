@@ -7,6 +7,7 @@ import {Http, Headers} from '@angular/http';
 })
 export class ProductsComponent implements OnInit {
   defaultData: any;
+  show: boolean;
   constructor(private http: Http) {
     this.http.get('http://smktesting.herokuapp.com/api/products/').subscribe(
       data => {

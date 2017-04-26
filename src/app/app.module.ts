@@ -10,6 +10,8 @@ import { ProductsComponent } from './products/products.component';
 import { CommentsComponent } from './comments/comments.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdTabsModule} from '@angular/material';
+import {MdInputModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MdButtonModule,
     MdCardModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MdTabsModule,
+    MdInputModule
   ],
   providers: [AllDataService],
   bootstrap: [AppComponent]

@@ -1,21 +1,29 @@
-<div fxLayout="column" fxLayoutAlign="start start"  >
-<md-card fxFlex="25" fxLayout="column" fxLayoutAlign="center stretch"  class="example-card" *ngFor="let data of defaultData">
+<div fxFlex="100"  fxLayout="row" fxLayoutAlign="space-around start" >
+
+
+<div fxLayout="column"   fxLayoutAlign="start start" >
+<md-card fxFlex="25" fxLayout="column" fxLayoutAlign="center stretch"
+         class="card" *ngFor="let data of defaultData">
   <md-card-header  fxLayoutAlign="center"  >
     <md-card-title >{{data.title}}</md-card-title>
     <div md-card-avatar class="example-header-image"></div>
   </md-card-header>
   <img fxFlex="100" class="image" src="{{'./assets/images/' + data.img}}">
   <md-card-content>
-    <p>
+    <p >
       {{data.text}}
+
+
     </p>
   </md-card-content>
   <md-card-actions fxLayout="column" >
 
-    <button md-button>Comment</button>
+    <button md-button (click)="show = !show">Comments</button>
   </md-card-actions>
 
 </md-card>
 
-</div>
 
+</div>
+  <app-comments  *ngIf="show"></app-comments>
+</div>

@@ -1,20 +1,20 @@
-<div  class="content" fxLayout="column"  fxFlex="100" fxLayoutAlign="space-around center"  >
-<md-card fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch" class="example-card" *ngFor="let data of reviews">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{data.title}}</md-card-title>
-  </md-card-header>
 
-  <md-card-content >
-    <p>
-      {{data.id}}
-    </p>
-    <p>
-      {{data.product}}
-    </p>
-    <p>
+<md-input-container class="example-full-width">
+  <textarea mdInput placeholder="Address 2"></textarea>
+</md-input-container>
+<div   class="content"  fxLayout="column" >
+<md-card fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch" class="card-comments" *ngFor="let data of reviews">
+
+
+  <div class="comments">
+     <div class="user" >
+       User:{{data.created_by.username}} at {{data.created_at}}<br>
+
+    </div>
+    <div>
+      Rate:{{data.rate}}<br>
       {{data.text}}
-    </p>
-  </md-card-content>
+    </div>
+  </div>
 </md-card>
 </div>
