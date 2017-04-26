@@ -17,6 +17,11 @@ export class CommentsComponent implements OnInit {
     );
   }
 
+  addHero(newComment) {
+    console.log(newComment);
+      this.reviews.push({text: newComment});
+  }
+
   ngOnInit() {
   }
 

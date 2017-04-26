@@ -1,9 +1,19 @@
 
-<md-input-container class="example-full-width">
-  <textarea mdInput placeholder="Address 2"></textarea>
-</md-input-container>
+
 <div   class="content"  fxLayout="column" >
-<md-card fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch" class="card-comments" *ngFor="let data of reviews">
+  <div  fxLayout="column" fxFlex="100" fxLayoutAlign="center stretch">
+  <md-input-container >
+    <textarea #newComment  class="user-comment" mdInput placeholder="Your comment"></textarea>
+  </md-input-container>
+    <div fxLayout="row" fxLayoutAlign="end stretch">
+      <button fxFlex="25" md-button (click)=addHero(newComment.value) >Submit Review</button>
+      <button fxFlex="25" md-button (click)="show=!show" >Show All Reviews</button>
+    </div>
+
+  </div>
+  <div  fxLayout="column"   *ngIf="show">
+<md-card  fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch"
+          class="card-comments" *ngFor="let data of reviews">
 
 
   <div class="comments">
@@ -17,4 +27,5 @@
     </div>
   </div>
 </md-card>
+  </div>
 </div>

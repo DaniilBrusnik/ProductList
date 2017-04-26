@@ -12,18 +12,12 @@
   <md-card-content>
     <p >
       {{data.text}}
-
-
     </p>
   </md-card-content>
-  <md-card-actions fxLayout="column" >
-
-    <button md-button (click)="show = !show">Comments</button>
-  </md-card-actions>
 
 </md-card>
 
 
 </div>
-  <app-comments  *ngIf="show"></app-comments>
+  <app-comments  ></app-comments>
 </div>
