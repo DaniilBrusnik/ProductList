@@ -5,18 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {MdButtonModule, MdCardModule} from '@angular/material';
-import {AllDataService} from './services/all-data.service';
+import { DataService} from './services/all-data.service';
 import { ProductsComponent } from './products/products.component';
 import { CommentsComponent } from './comments/comments.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdTabsModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    CommentsComponent
+    CommentsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import {MdInputModule} from '@angular/material';
     MdTabsModule,
     MdInputModule
   ],
-  providers: [AllDataService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
