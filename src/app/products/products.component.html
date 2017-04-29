@@ -8,9 +8,10 @@
     <md-card-title >{{data.title}}</md-card-title>
 
   </md-card-header>
-  <img fxFlex="100" class="image" src="{{'./assets/images/' + data.img}}">
-  <md-card-content>
-    <p >
+
+  <md-card-content (click)="getProductId(data.id)">
+    <img fxFlex="100" class="image" src="{{'./assets/images/' + data.img}}">
+    <p   >
       {{data.text}}
     </p>
   </md-card-content>
@@ -19,5 +20,7 @@
 
 
 </div>
-<app-comments></app-comments>
+<app-comments [id]="productId" >
+
+</app-comments>
 </div>

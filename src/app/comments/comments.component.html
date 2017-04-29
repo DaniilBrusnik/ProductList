@@ -2,23 +2,22 @@
 
   <div  fxLayout="column" fxFlex="100" fxLayoutAlign="center stretch">
   <md-input-container >
-    <textarea #newComment   class="user-comment" mdInput placeholder="Your comment"></textarea>
-
-
+    <textarea  [(ngModel)]="newComment"   class="user-comment" mdInput placeholder="Your comment"></textarea>
   </md-input-container>
+
     <md-input-container >
-      <input mdInput #username placeholder="Login" value="fdtgh">
+      <input mdInput  [(ngModel)]="username" placeholder="Login">
     </md-input-container>
     <md-input-container >
-      <input mdInput #password placeholder="Password" value="Lorem">
+      <input mdInput  [(ngModel)]="password" placeholder="Password" >
     </md-input-container>
     <div fxLayout="row" fxLayoutAlign="end stretch">
-      <button fxFlex="25" color="primary" md-button (click)="addHero(newComment.value)"  >Submit Review</button>
-      <button fxFlex="25" color="warn" md-button  (click)="GetReviews(username.value,password.value)" (click)="show=!show" >Show All Reviews</button>
+      <button fxFlex="25" color="primary" md-button (click)="addReviews()"  >Submit Review</button>
+      <button fxFlex="25" color="warn" md-button  (click)="GetReviews()" >Show All Reviews</button>
     </div>
 
   </div>
-  <div  fxLayout="column"   *ngIf="show">
+  <div  fxLayout="column"   >
 <md-card  fxFlex="100" fxLayout="column" fxLayoutAlign="center stretch"
           class="card-comments" *ngFor="let data of reviews">
 

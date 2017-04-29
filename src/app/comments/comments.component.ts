@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Http} from '@angular/http';
-import {DataService} from "../services/all-data.service";
+import {DataService} from '../services/all-data.service';
 
 @Component({
   selector: 'app-comments',
@@ -12,23 +12,44 @@ export class CommentsComponent implements OnInit {
   product_id = 1;
   dateNow: any;
   loginData: any;
-
-  constructor(private http: Http, private dataService: DataService,) {
-    this.http.get('http://smktesting.herokuapp.com/api/reviews/' + this.product_id).subscribe(
-      data => {
-        this.reviews = JSON.parse(data['_body']);
-      }
-    );
+  password: any;
+  username: any;
+  newComment: any;
+  private _id: any;
+  @Input()
+  set id(id: any) {
+    this._id = id ;
+    this.getComments();
+  }
+  get id(): any {
+    return this._id;
   }
 
+  constructor(private http: Http, private dataService: DataService) {
+  }
 
-  addHero(newComment) {
+  getComments() {
+    if(this._id){
+      this.http.get('http://smktesting.herokuapp.com/api/reviews/' + this._id).subscribe(
+        data => {
+          this.reviews = JSON.parse(data['_body']);
+        }
+      );
+    }
+  }
+
+  addReviews() {
     this.dateNow = new Date().toISOString();
-    this.reviews.unshift({created_at: this.dateNow, text: newComment});
+    this.reviews.unshift({created_at: this.dateNow, text: this.newComment});
   }
 
-  GetReviews(username, password) {
-    this.dataService.Reviews(username, password);
+  GetReviews() {
+    this.dataService.login(this.username, this.password)
+      .subscribe(
+        data => {
+          console.log(data)
+        }
+      )
   }
 
   ngOnInit() {
