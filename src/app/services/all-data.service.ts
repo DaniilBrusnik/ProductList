@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Input} from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -10,6 +10,7 @@ export class DataService {
   productId = 1;
   data: {};
   token: any;
+  isAuthentificate = false;
 
   constructor(private http: Http) {
   }
@@ -18,7 +19,7 @@ export class DataService {
     return this.http.get('http://smktesting.herokuapp.com/api/products/')
       .map(this.extractData)
       .catch(this.handleError);
-}
+  }
 
   public GetComments() {
     this.http.get('http://smktesting.herokuapp.com/api/reviews/' + this.productId).subscribe(
@@ -46,6 +47,19 @@ export class DataService {
       .catch(this.handleError);
   };
 
+  public addComment(rate: any, text: any, id: any): Observable<any> {
+    let body = {
+      rate: rate,
+      text: text
+    };
+    let headers = new Headers();
+    this.createAuthorizationHeader(headers);
+    if (id) {
+      return this.http.post('http://smktesting.herokuapp.com/api/reviews/' + id, body, {headers: headers})
+        .map(this.extractData)
+        .catch(this.handleError);
+    }
+  };
 
   public login(username: any, password: any): Observable<any> {
     let data = {
@@ -69,6 +83,14 @@ export class DataService {
     headers.append('Authorization', 'Token ' + this.token);
   }
 
+
+  public isLoggined(): boolean {
+    return this.isAuthentificate;
+  };
+
+  public authenticate(): void {
+    this.isAuthentificate = true;
+  };
 
   private extractData(res: Response) {
     let body = res.json();

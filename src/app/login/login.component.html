@@ -1,0 +1,14 @@
+<div class="login-content"  fxLayout="column" fxFlex="100" fxLayoutAlign="center center">
+<md-input-container >
+  <input mdInput  [(ngModel)]="username" placeholder="Login">
+</md-input-container>
+<md-input-container >
+  <input mdInput  [(ngModel)]="password" placeholder="Password" >
+</md-input-container>
+  <div fxLayout="row">
+    <button fxFlex="25"  md-button  (click)="login()" >sign in</button>
+    <button fxFlex="25" md-button  (click)="login()" >login</button>
+  </div>
+
+<div routerLink="products"   >Component One</div>
+</div>

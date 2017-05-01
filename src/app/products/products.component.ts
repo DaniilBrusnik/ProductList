@@ -8,11 +8,10 @@ import {DataService} from '../services/all-data.service';
 
 })
 export class ProductsComponent implements OnInit {
-  defaultData: any;
-  show: boolean;
+  data: any;
   errorMessage: any;
   productId: any;
-
+  active= true;
   constructor(private http: Http,
               private dataService: DataService) {
     this.getProducts();
@@ -22,17 +21,18 @@ export class ProductsComponent implements OnInit {
  this.productId = id;
   }
 
+
   getProducts() {
     this.dataService.getProducts()
       .subscribe(
         data => {
-          this.defaultData = data;
-          this.productId = this.defaultData[0].id;
+          this.data = data;
+          this.productId = this.data[0].id;
         },
         error => this.errorMessage = <any>error);
   }
 
-
   ngOnInit() {
   }
 }
+

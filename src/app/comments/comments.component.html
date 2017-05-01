@@ -5,15 +5,10 @@
     <textarea  [(ngModel)]="newComment"   class="user-comment" mdInput placeholder="Your comment"></textarea>
   </md-input-container>
 
-    <md-input-container >
-      <input mdInput  [(ngModel)]="username" placeholder="Login">
-    </md-input-container>
-    <md-input-container >
-      <input mdInput  [(ngModel)]="password" placeholder="Password" >
-    </md-input-container>
+
     <div fxLayout="row" fxLayoutAlign="end stretch">
-      <button fxFlex="25" color="primary" md-button (click)="addReviews()"  >Submit Review</button>
-      <button fxFlex="25" color="warn" md-button  (click)="GetReviews()" >Show All Reviews</button>
+      <button fxFlex="25" color="primary" md-button (click)="addComment()"  >Submit Review</button>
+
     </div>
 
   </div>

@@ -9,18 +9,16 @@ import {DataService} from '../services/all-data.service';
 })
 export class CommentsComponent implements OnInit {
   reviews: any;
-  product_id = 1;
   dateNow: any;
-  loginData: any;
-  password: any;
-  username: any;
+  rate = 4;
   newComment: any;
   private _id: any;
   @Input()
   set id(id: any) {
-    this._id = id ;
+    this._id = id;
     this.getComments();
   }
+
   get id(): any {
     return this._id;
   }
@@ -29,7 +27,7 @@ export class CommentsComponent implements OnInit {
   }
 
   getComments() {
-    if(this._id){
+    if (this._id) {
       this.http.get('http://smktesting.herokuapp.com/api/reviews/' + this._id).subscribe(
         data => {
           this.reviews = JSON.parse(data['_body']);
@@ -38,19 +36,13 @@ export class CommentsComponent implements OnInit {
     }
   }
 
-  addReviews() {
+  addComment() {
     this.dateNow = new Date().toISOString();
-    this.reviews.unshift({created_at: this.dateNow, text: this.newComment});
+    this.reviews.unshift({created_at: this.dateNow, rate: this.rate,  text: this.newComment });
+    this.dataService.addComment(this.rate , this.newComment, this._id);
   }
 
-  GetReviews() {
-    this.dataService.login(this.username, this.password)
-      .subscribe(
-        data => {
-          console.log(data)
-        }
-      )
-  }
+
 
   ngOnInit() {
   }
