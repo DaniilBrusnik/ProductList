@@ -11,6 +11,7 @@ export class ProductsComponent implements OnInit {
   data: any;
   errorMessage: any;
   productId: any;
+  selectedRow : number;
   active= true;
   constructor(private http: Http,
               private dataService: DataService) {
@@ -20,7 +21,9 @@ export class ProductsComponent implements OnInit {
   getProductId(id) {
  this.productId = id;
   }
-
+  setClickedRow(index) {
+    this.selectedRow = index;
+  }
 
   getProducts() {
     this.dataService.getProducts()

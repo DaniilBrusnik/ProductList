@@ -1,29 +1,24 @@
 <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-around start">
 
-  <!--(selectChange) ="getProductId()"-->
+
   <div fxLayout="column" fxLayoutAlign="start start">
-    <md-tab-group fxLayout="column"   fxLayoutAlign="center stretch ">
-      <div *ngFor="let data of data; let i = index" >
-      <md-tab  fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
-        <ng-template   md-on-select="getProductId(data.id)" md-tab-label>
-         {{data.title}}
-        </ng-template>
-        <md-card class="card" >
-          <div class="product" >
-            <md-card-content  fxLayout="column" fxLayoutAlign="space-around center" >
-              <img  class="image" src="{{'./assets/images/' + data.img}}">
-              <p>
-                {{data.text}}
-              </p>
-            </md-card-content>
-          </div>
-        </md-card>
+    <div  class="content" fxFlex="25" fxLayout="column" fxLayoutAlign="center stretch"
+         *ngFor="let data of data; let i = index"
+         (click)="setClickedRow(i);getProductId(data.id)" [class.selection]="i == selectedRow">
+    <md-card class="card"  >
 
-      </md-tab>
-      </div>
-    </md-tab-group>
-    <div>
-
+      <div class="product" (click)="getProductId(data.id)">
+      <md-card-header  fxLayoutAlign="center">
+        <md-card-title>{{data.title}}</md-card-title>
+      </md-card-header>
+      <md-card-content  fxLayout="column" fxLayoutAlign="space-around center" >
+        <img  class="image" src="{{'./assets/images/' + data.img}}">
+        <p>
+          {{data.text}}
+        </p>
+      </md-card-content>
+    </div>
+    </md-card>
     </div>
     </div>
 
