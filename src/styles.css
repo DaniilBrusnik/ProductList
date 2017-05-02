@@ -3,3 +3,8 @@
   text-align: -webkit-center!important;
   text-align: -moz-center!important;
 }
+app-comments {
+ border-radius:1px ;
+  border-right: #cecece 1px solid;
+  margin-left: 50px;
+}

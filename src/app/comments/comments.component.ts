@@ -9,9 +9,11 @@ import {DataService} from '../services/all-data.service';
 })
 export class CommentsComponent implements OnInit {
   reviews: any;
+  created_by: any;
   dateNow: any;
   rate = 4;
   newComment: any;
+  username: "qwe";
   private _id: any;
   @Input()
   set id(id: any) {
@@ -26,11 +28,16 @@ export class CommentsComponent implements OnInit {
   constructor(private http: Http, private dataService: DataService) {
   }
 
+  /*  getUsername() {
+   this.dataService.data.
+   }*/
+
   getComments() {
     if (this._id) {
       this.http.get('http://smktesting.herokuapp.com/api/reviews/' + this._id).subscribe(
         data => {
           this.reviews = JSON.parse(data['_body']);
+
         }
       );
     }
@@ -38,10 +45,14 @@ export class CommentsComponent implements OnInit {
 
   addComment() {
     this.dateNow = new Date().toISOString();
-    this.reviews.unshift({created_at: this.dateNow, rate: this.rate,  text: this.newComment });
-    this.dataService.addComment(this.rate , this.newComment, this._id);
+    this.reviews.unshift({
+      created_at: this.dateNow,
+      rate: this.rate,
+      text: this.newComment,
+    },     this.reviews.created_by[1].username = this.username);
+   /* this.reviews.created_by.unshift({ username: this.username });*/
+    this.dataService.addComment(this.rate, this.newComment, this._id);
   }
-
 
 
   ngOnInit() {

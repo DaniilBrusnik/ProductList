@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit {
               public router: Router) {
   }
 
-  loginRoute() {
-    this.router.navigate(['login/products']);
-  }
   login() {
     this.dataService.login(this.username, this.password).subscribe(
       data => {
@@ -33,7 +30,17 @@ export class LoginComponent implements OnInit {
       });
 
   }
+  register() {
+    this.dataService.register(this.username, this.password).subscribe(
+      data => {
+        this.dataService.authenticate();
+        this.router.navigate(['/products']);
+      },
+      error => {
+        error = JSON.parse(error._body);
+      });
 
+  }
 
   ngOnInit() {
   }

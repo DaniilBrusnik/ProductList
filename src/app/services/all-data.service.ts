@@ -8,7 +8,6 @@ export class DataService {
   defaultData: any;
   reviews: any;
   productId = 1;
-  data: {};
   token: any;
   isAuthentificate = false;
 
