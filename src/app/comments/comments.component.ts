@@ -49,7 +49,8 @@ export class CommentsComponent implements OnInit {
       created_at: this.dateNow,
       rate: this.rate,
       text: this.newComment,
-    },     this.reviews.created_by[1].username = this.username);
+    },
+      );
    /* this.reviews.created_by.unshift({ username: this.username });*/
     this.dataService.addComment(this.rate, this.newComment, this._id);
   }
